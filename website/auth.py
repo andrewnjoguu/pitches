@@ -19,15 +19,16 @@ def sign_up():
         password1 = request.form.get("password1")
         password2 = request.form.get('password2')
         if len(email) < 4:
-            pass
+            flash('Email must be greater than 4 charcters.',category='error made')
         elif len(firstName) < 2:
-            pass
+             flash('Name must be greater than 2 charcters.', category='error made')
         elif password1 != password2:
-            pass
+            flash('Your passwords do not match.', category='error made')
         elif len(password1) < 7:
-            pass
+            flash('Your password is too short. It must have at least seven characters', category='error made')
         else:
-            # user can now be added to database
-            pass
+            flash('Account created!', category='success')
+            
+            
 
     return render_template("sign_up.html")
